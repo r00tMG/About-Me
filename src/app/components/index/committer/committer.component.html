@@ -1,0 +1,37 @@
+<div class="container ">
+    <ng-container *ngIf="committersState$ | async as state" [ngSwitch]="state.dataState">
+      <ng-container *ngSwitchCase="AboutReducerEnum.LOADING">
+        Loading...
+      </ng-container>
+      <ng-container *ngSwitchCase="AboutReducerEnum.ERROR">
+        <div class="bg-danger text-white alert-danger">
+          {{state.errorMessage}}
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="AboutReducerEnum.LOADED">
+        <table class="table" >
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First_Name</th>
+            <th scope="col">Last_Name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Tel</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let com of state.committers">
+                <td>{{com.id}}</td>
+                <td>{{com.first_name}}</td>
+                <td>{{com.last_name}}</td>
+                <td>{{com.email}}</td>
+                <td>{{com.tel}}</td>
+
+                <td>
+            <tr>
+
+          </tbody>
+        </table>
+      </ng-container>
+    </ng-container>
+  </div>

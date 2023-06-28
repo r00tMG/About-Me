@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-about{
+    background-color: rgb(220, 230, 220);
+}
+.hr-index{
+    margin: 1rem 600px;
+}
+.hr-index1{
+    margin: 1rem 1500px;
+}
+
+.bg-footer{
+    background-color: #000000;
+}

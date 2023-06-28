@@ -1,0 +1,18 @@
+{
+  "committer": [
+    {
+      "id": 1,
+      "first_name": "Penda",
+      "last_name": "Cisse",
+      "tel": 773638584,
+      "mail": "pendacisse@gmail.com"
+    },
+    {
+      "id":2,
+      "first_name": "Maguette",
+      "last_name": "Ndiaye",
+      "tel": 775037576,
+      "mail": "maguettendiaye@gmail.com"
+    }
+  ]
+}
