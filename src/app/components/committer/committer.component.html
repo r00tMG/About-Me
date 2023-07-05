@@ -1,14 +1,23 @@
 <div class="container ">
-    <ng-container *ngIf="committersState$ | async as state" [ngSwitch]="state.dataState">
-      <ng-container *ngSwitchCase="AboutReducerEnum.LOADING">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <h5 class="card-title" (click)="onGetAllCommitter()"><strong>List of Committers</strong></h5>
+      <form class="d-flex">
+        <input class="form-control me-2" ngModel name="keyword" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <ng-container *ngIf="commits$ | async as result" [ngSwitch]="result.dataState">
+      <ng-container *ngSwitchCase="DataStateEnum.LOADING">
         Loading...
       </ng-container>
-      <ng-container *ngSwitchCase="AboutReducerEnum.ERROR">
+      <ng-container *ngSwitchCase="DataStateEnum.ERROR">
         <div class="bg-danger text-white alert-danger">
-          {{state.errorMessage}}
+          {{result.errorMessage}}
         </div>
       </ng-container>
-      <ng-container *ngSwitchCase="AboutReducerEnum.LOADED">
+      <ng-container *ngSwitchCase="DataStateEnum.LOADED">
         <table class="table" >
           <thead>
           <tr>
@@ -20,7 +29,7 @@
           </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let com of state.committers">
+            <tr *ngFor="let com of result.data">
                 <td>{{com.id}}</td>
                 <td>{{com.first_name}}</td>
                 <td>{{com.last_name}}</td>
