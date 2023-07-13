@@ -1,22 +1,32 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand  bg-body-tertiary">
   <div class="container-fluid p-4">
-    <img src="assets/img/logo5.png" width="100" height="100" alt="">
+    <a routerLink="index"><img src="assets/img/logo5.png" width="100" height="100" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center" >
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="index" href="#">Home</a>
         </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" href="#about">About Me</a>
+        </li>-->
         <li class="nav-item">
-          <a class="nav-link" href="#">About Me</a>
+          <a class="nav-link" href="https://www.linkedin.com/in/root-gningue">LinkedIn</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">LinkedIn</a>
+        <li class="nav-item" *ngIf="this.authService.hasRole('ADMIN')">
+          <a class="nav-link " routerLink="committer">Committer</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " routerLink="committer" (click)="onGetAllCommitters()">Committer</a>
+      </ul>
+      <ul class="navbar-nav">
+        <li>
+          {{this.authService.authenticatedUser?.username}}
+        </li>
+        <li>
+          <a class="btn-danger" (click)="handleLogout()">
+            <i class="bi bi-box-arrow-right"></i>
+          </a>
         </li>
       </ul>
       <!-- Button Trigger Modal: Hire me -->
@@ -44,7 +54,7 @@
                 </div>
                 <div class="col-md-4">
                   <label for="validationCustom02" class="form-label">Last name</label>
-                  <input type="text" class="form-control" id="validationCustom02" formControlName="last_name" required>
+                  <input type="text" class="form-control" id="validationCustom02" ngM formControlName="last_name" required>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -79,28 +89,3 @@
     </div>
   </div>
 </nav>
-<!-- Présentation en quelques ligne avec ma photo -->
-<div class="container ">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-6  text-center overflow-hidden">
-              <div class="my-3 py-5">
-                  <h2 class="display-5"><em>I'm Meissa</em></h2>
-                  <p class="lead">Lorem ipsum dolor sit,
-                      amet consectetur adipisicing elit.
-                      Excepturi nemo sed illo accusamus,
-                      possimus id impedit a commodi architecto nihil quos doloribus,
-                      ipsam molestias est nesciunt iusto doloremque veritatis. Incidunt?
-                  </p>
-                  <a class="btn btn-sm btn-outline-success" href="">About</a>
-              </div>
-          </div>
-          <div class="col-md-6  text-center overflow-hidden">
-              <div class="my-1 p-2">
-                  <img class="img-fluid" src="assets/img/logo4.png" alt="">
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<!-- /Présentation en quelques ligne avec ma photo -->

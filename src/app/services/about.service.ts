@@ -13,6 +13,6 @@ export class AboutService{
   saveCommitter(committer: Committer):Observable<Committer>{
     return this.http.post<Committer>("http://localhost:3000/committer",committer)
   }
-  
+
 
 }

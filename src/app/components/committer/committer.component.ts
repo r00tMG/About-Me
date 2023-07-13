@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {AboutService} from "../../../services/about.service";
+import {AboutService} from "../../services/about.service";
 import {catchError, map, Observable, of, startWith} from "rxjs";
-import {Committer} from "../../../models/committer.model";
-import {AppDataState, DataStateEnum} from "../../../states/about.state";
+import {Committer} from "../../models/committer.model";
+import {AppDataState, DataStateEnum} from "../../states/about.state";
 
 @Component({
   selector: 'app-committer',
